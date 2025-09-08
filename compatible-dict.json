@@ -1,9 +1,35 @@
 {
-    "GPU": [
-        {"model": "RX 6600", "message": ""},
-        {"model": "RX 6600 XT", "message": ""},
-        {"model": "RX 6650 XT", "message": "Spoof to RX 6600 XT"}
-    ],
+    "GPU": {
+        "AMD": [
+            {"PciDeviceId": "73FF"},
+            {"PciDeviceId": "73EF"},
+            {"PciDeviceId": "73E3"},
+            {"PciDeviceId": "73BF"},
+            {"PciDeviceId": "73BF"},
+            {"PciDeviceId": "73AF"},
+            {"PciDeviceId": "73A5"},
+            {"PciDeviceId": "73A3"},
+            {"PciDeviceId": "7340"},
+            {"PciDeviceId": "731F"},
+            {"PciDeviceId": "7341"},
+            {"PciDeviceId": "7312"},
+            {"PciDeviceId": "66AF"},
+            {"PciDeviceId": "687F"},
+            {"PciDeviceId": "6861"},
+            {"PciDeviceId": "6863"},
+            {"PciDeviceId": "67EF"},
+            {"PciDeviceId": "699F"},
+            {"PciDeviceId": "67FF"},
+            {"PciDeviceId": "67EF"},
+            {"PciDeviceId": "67DF"},
+            {"PciDeviceId": "67DF"},
+            {"PciDeviceId": "6985"},
+            {"PciDeviceId": "6981"},
+            {"PciDeviceId": "67E3"},
+            {"PciDeviceId": "67C7"},
+            {"PciDeviceId": "67C4"}
+        ]
+    },
 
     "CPU": [
 
