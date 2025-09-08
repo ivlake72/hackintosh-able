@@ -1,6 +1,8 @@
 {
     "GPU": [
-        ""
+        {"model": "RX 6600", "message": ""},
+        {"model": "RX 6600 XT", "message": ""},
+        {"model": "RX 6650 XT", "message": "Spoof to RX 6600 XT"}
     ],
 
     "CPU": [
