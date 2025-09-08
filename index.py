@@ -1,15 +1,16 @@
 import subprocess
 import re
 import json
+import cpuinfo
 
-cmd = (
+gpuCheckCmd = (
     'powershell -Command "Get-PnpDevice -Class Display | '
     'Select-Object -Property InstanceId, FriendlyName | ConvertTo-Json"'
 )
 
 final_data = {
     "GPU": {"modelName": "", "isSupported": False},
-    "CPU": {"modelName": "", "isSupported": True},
+    "CPU": {"modelName": "", "codeName": "", "isSupported": False},
 }
 
 def vendor_filter(friendlyName):
@@ -22,7 +23,7 @@ def vendor_filter(friendlyName):
         return "nvidia"
     
 def getGPUandCheckCompatible():
-    output = subprocess.check_output(cmd, shell=True, text=True)
+    output = subprocess.check_output(gpuCheckCmd, shell=True, text=True)
     gpu_info = json.loads(output)
 
     with open("compatible-dict.json") as f:
@@ -31,5 +32,21 @@ def getGPUandCheckCompatible():
         match = re.search(r'DEV_([0-9A-F]{4})', gpu_info['InstanceId'], re.I)
         if match:
             device_id = match.group(1).upper()
-            print(gpu_info['FriendlyName'])
-            print(device_id in compatible_data['gpu'][vendor_filter(gpu_info['FriendlyName'])])
+            final_data['GPU']['modelName'] = gpu_info['FriendlyName']
+            final_data['GPU']['isSupported'] = device_id in compatible_data['gpu'][vendor_filter(gpu_info['FriendlyName'])]
+
+def getCPUandCheckCompatible():
+    cpu = cpuinfo.get_cpu_info()
+    brand = cpu['brand_raw']
+    code_name = "Unknown"
+
+    final_data["CPU"]['modelName'] = brand
+    
+
+
+def getInfo():
+    getGPUandCheckCompatible() # GPU
+    getCPUandCheckCompatible() # CPU
+
+getInfo()
+print(final_data)
