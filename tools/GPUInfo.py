@@ -3,7 +3,7 @@ import json
 import re
 
 final_data = {
-    "GPU": {"modelName": "", "isSupported": False},
+    "GPU": {},
 }
 
 gpuCheckCmd = (
