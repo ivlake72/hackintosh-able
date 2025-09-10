@@ -1,6 +1,13 @@
 import cpuinfo
 import json
 
+import os, sys
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
 final_data = {
     "CPU": {},
 }
@@ -81,7 +88,7 @@ def getCPUandCheckCompatible():
     if vendor and (family, model) in codename_map[vendor]:
         final_data["CPU"]["codename"] = codename_map[vendor][(family, model)]
         
-    with open("compatible-dict.json", "r") as f:
+    with open(resource_path("compatible-dict.json"), "r") as f:
         unsupported_cpu = json.load(f)['unsupported_cpu']
 
     for uc in unsupported_cpu:

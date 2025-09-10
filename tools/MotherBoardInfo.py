@@ -1,6 +1,13 @@
 import subprocess
 import json
 
+import os, sys
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
 final_data = {
     "MOTHERBOARD": {},
 }
@@ -25,7 +32,7 @@ def is_unsupported(model, unsupported_list):
     return False
 
 def checkCompatible():
-    with open("compatible-dict.json", "r", encoding="utf-8") as f:
+    with open(resource_path("compatible-dict.json"), "r", encoding="utf-8") as f:
         data = json.load(f)
         unsupported_list = data["unsupported_motherboard"]
 

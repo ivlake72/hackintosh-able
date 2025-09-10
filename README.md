@@ -10,6 +10,9 @@ This program checks your hardware as follows:
 - Motherboard
 - Audio
 
+### How to Run
+1. Your PC must installed `Python 3.13+`
+
 ---
 
 PC가 Hackintosh 설치에 적합한지 확인하는 Python 기반 프로그램입니다.
@@ -25,3 +28,9 @@ PC가 Hackintosh 설치에 적합한지 확인하는 Python 기반 프로그램�
 
 # Preview
 <img width="729" height="869" alt="image" src="https://github.com/user-attachments/assets/021239ce-6599-49aa-9cd6-dcf001f5ed2b" />
+
+# How to use
+
+1. Make sure you have **Python 3.13+** installed on your PC.
+2. Download this project.
+3. Execute `Run.bat`.
