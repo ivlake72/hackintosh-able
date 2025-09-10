@@ -30,7 +30,6 @@ def checkCompatible():
         unsupported_list = data["unsupported_motherboard"]
 
         model = getMotherboardInfo()
-        print(f"Detected Motherboard: {model}")
 
         if is_unsupported(model, unsupported_list):
             final_data['MOTHERBOARD']['isSupported'] = False
