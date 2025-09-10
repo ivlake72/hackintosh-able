@@ -15,19 +15,18 @@ def status_color(status, label="- Is Supported?:"):
     print(f"\033[90m{label}\033[0m {color}{status}\033[0m")
 
 while running:
-    print("== Hackintosh-Able by Lumex57 ==")
 
     if not isAlreadyGot:
-        print('[+] Getting CPU Info..')
+        print('\033[90m[+] Getting CPU Info..\033[0m')
         final_data['CPU'] = getCPUInfo()
 
-        print('[+] Getting GPU Info..')
+        print('\033[90m[+] Getting GPU Info..\033[0m')
         final_data['GPU'] = getGPUInfo()
 
-        print('[+] Getting Motherboard info..')
+        print('\033[90m[+] Getting Motherboard info..\033[0m')
         final_data['MB'] = getMotherBoardInfo()
 
-        print('[+] Getting Audio info..')
+        print('\033[90m[+] Getting Audio info..\033[0m')
         final_data['AC'] = getAudioInfo()
 
         isAlreadyGot = True
