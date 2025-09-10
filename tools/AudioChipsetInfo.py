@@ -13,7 +13,6 @@ def getAudioChipsetInfo():
     with open('compatible-dict.json', "r") as f:
         unsuppored_audio_list = json.loads(f.read())['unsupported_sounds']
         
-        print(unsuppored_audio_list)
         for audio in ac_info:
             if audio['Name'] in unsuppored_audio_list:
                 final_data['AUDIO'].append({'modelName': audio['Name'], 'isSupported': False, 'message': 'Need VoodooHDA.kext'})
