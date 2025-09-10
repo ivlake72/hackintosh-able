@@ -76,8 +76,6 @@ def getCPUandCheckCompatible():
     model = cpu_info.get("model")
     brand = cpu_info.get("brand_raw", "Unknown")
 
-    codename = "Unknown"
-
     vendor = "intel" if "intel" in brand.lower() else "amd" if "amd" in brand.lower() else None
 
     if vendor and (family, model) in codename_map[vendor]:

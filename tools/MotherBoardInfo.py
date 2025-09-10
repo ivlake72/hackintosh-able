@@ -1,14 +1,43 @@
 import subprocess
 import json
 
-supported_motherboards = ["Z370-A", "B450M PRO4", "Z490-E"]
+final_data = {
+    "MOTHERBOARD": {},
+}
 
-def get_motherboard_model():
-    cmd = 'powershell -Command "Get-CimInstance Win32_BaseBoard | Select-Object Manufacturer, Product | ConvertTo-Json"'
+def getMotherboardInfo():
+    cmd = 'powershell -Command "Get-CimInstance Win32_BaseBoard | Select-Object Manufacturer, Product | ConvertTo-Json -Compress"'
     output = subprocess.check_output(cmd, shell=True, text=True)
     mb_info = json.loads(output)
-    product = mb_info.get("Product", "")
-    return f"{product}"
+
+    if isinstance(mb_info, list):
+        mb_info = mb_info[0]
+    mb = mb_info.get("Product", "").strip()
+
+    final_data['MOTHERBOARD']['modelName'] = mb_info.get("Product", "").strip()
+
+    return mb
+
+def is_unsupported(model, unsupported_list):
+    for keyword in unsupported_list:
+        if keyword.lower() in model.lower():
+            return True
+    return False
+
+def checkCompatible():
+    with open("compatible-dict.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+        unsupported_list = data["unsupported_motherboard"]
+
+        model = getMotherboardInfo()
+        print(f"Detected Motherboard: {model}")
+
+        if is_unsupported(model, unsupported_list):
+            final_data['MOTHERBOARD']['isSupported'] = False
+        else:
+            final_data['MOTHERBOARD']['isSupported'] = True
 
 
-print(get_motherboard_model())
+def getMotherBoardInfo():
+    checkCompatible()
+    return final_data["MOTHERBOARD"]
