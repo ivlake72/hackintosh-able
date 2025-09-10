@@ -113,6 +113,12 @@
         "C422",
         "VIA",
         "nForce"
+    ],
+
+    "unsupported_sounds": [
+        "ALC221",
+        "S1220A",
+        "ALC290"
     ]
 
 }
