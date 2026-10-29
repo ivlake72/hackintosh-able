@@ -31,3 +31,6 @@ PC가 Hackintosh 설치에 적합한지 확인하는 Python 기반 프로그램�
 1. Make sure you have **Python 3.13+** installed on your PC.
 2. Download as Zip
 3. Execute `Run.bat`.
+
+# Special Thanks
+- [@frostful](https://github.com/frostful)
