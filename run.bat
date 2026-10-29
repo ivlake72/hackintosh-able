@@ -1,5 +1,12 @@
 @echo off
 
-pip install cpuinfo webbrowser
+py -m pip install py-cpuinfo
+if %errorlevel% neq 0 (
+    echo Failed to install py-cpuinfo, exiting.
+    pause
+    exit /b %errorlevel%
+)
 
-python index.py
+py index.py
+
+pause
