@@ -33,22 +33,22 @@ while running:
 
     os.system('cls')
 
-    print("== Hackintosh-Able by Lumex57 ==")
+    print("== Hackintosh-Able by IVLAKE ==")
     print('\n')
 
     print('\033[36m[+] CPU\033[0m')
-    print(f'\033[90m- Model Name:\033[0m {final_data["CPU"]['modelName']}')
-    print(f'\033[90m- Code Name:\033[0m {final_data["CPU"]['codename']}')
+    print(f"\033[90m- Model Name:\033[0m {final_data['CPU']['modelName']}")
+    print(f"\033[90m- Code Name:\033[0m {final_data['CPU']['codename']}")
     status_color(final_data["CPU"]['isSupported'])
 
     print('\n')
     print('\033[36m[+] GPU\033[0m')
-    print(f'\033[90m- Model Name:\033[0m {final_data["GPU"]['modelName']}')
+    print(f"\033[90m- Model Name:\033[0m {final_data['GPU']['modelName']}")
     status_color(final_data["GPU"]['isSupported'])
 
     print('\n')
     print('\033[36m[+] Motherboard\033[0m')
-    print(f'\033[90m- Model Name:\033[0m {final_data["MB"]['modelName']}')
+    print(f"\033[90m- Model Name:\033[0m {final_data['MB']['modelName']}")
     status_color(final_data["MB"]['isSupported'])
 
     print('\n')
@@ -57,7 +57,7 @@ while running:
     for i in range(len(final_data["AC"])):
 
         print(f'\033[90m===========\n')
-        print(f'\033[90m- Model Name:\033[0m {final_data["AC"][i]['modelName']}')
+        print(f"\033[90m- Model Name:\033[0m {final_data['AC'][i]['modelName']}")
         status_color(final_data["AC"][i]['isSupported'])
         print('\n')
 
@@ -69,5 +69,5 @@ while running:
     if inn == "1":
         running = False
     if inn == "2":
-        webbrowser.open("https://github.com/lumex57/hackintosh-able")
+        webbrowser.open("https://github.com/ivlake72/hackintosh-able")
 
