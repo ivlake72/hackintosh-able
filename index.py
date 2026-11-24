@@ -38,7 +38,11 @@ while running:
 
     print('\033[36m[+] CPU\033[0m')
     print(f"\033[90m- Model Name:\033[0m {final_data['CPU']['modelName']}")
-    print(f"\033[90m- Code Name:\033[0m {final_data['CPU']['codename']}")
+    try:
+        print(f"\033[90m- Code Name:\033[0m {final_data['CPU']['codename']}")
+    except KeyError: 
+        print(f"\033[90m- Code Name:\033[0m Unknown")
+
     status_color(final_data["CPU"]['isSupported'])
 
     print('\n')
