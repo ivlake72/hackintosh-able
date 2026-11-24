@@ -33,15 +33,20 @@ while running:
 
     os.system('cls')
 
-    print("== Hackintosh-Able by IVLAKE ==")
+    print("Hackintosh-Able by IVLAKE")
     print('\n')
 
     print('\033[36m[+] CPU\033[0m')
     print(f"\033[90m- Model Name:\033[0m {final_data['CPU']['modelName']}")
+
+    code_name = ""
+
     try:
-        print(f"\033[90m- Code Name:\033[0m {final_data['CPU']['codename']}")
+        code_name = final_data['CPU']['codename']
     except KeyError: 
-        print(f"\033[90m- Code Name:\033[0m Unknown")
+        code_name = "Unknown"
+
+    print(f"\033[90m- Code Name:\033[0m {code_name}")
 
     status_color(final_data["CPU"]['isSupported'])
 
